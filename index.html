@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats-Hub | Imtihon Loyihasi</title>
+    <style>
+        /* 1. ASOSIY FON VA RAMKA */
+        
+        body {
+            background-color: #dfe6e9;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        /* BG FRAME - Asosiy oq blok */
+        
+        .container-frame {
+            background: white;
+            max-width: 1000px;
+            width: 100%;
+            border: 10px solid #74b9ff;
+            /* Moviy ramka */
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px dashed #74b9ff;
+            padding-bottom: 20px;
+        }
+        
+        h1 {
+            color: #2d3436;
+            text-transform: uppercase;
+        }
+        /* 2. MUSHUKLAR TARMOG'I (GRID) */
+        
+        .cats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        /* 3. MUSHUK KARTASI */
+        
+        .cat-card {
+            border: 1px solid #eee;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #fff;
+            transition: 0.3s;
+        }
+        
+        .cat-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        /* Rasm stili */
+        
+        .cat-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            /* Rasmni chiroyli kesib joylashtiradi */
+            background-color: #eee;
+        }
+        
+        .cat-content {
+            padding: 20px;
+        }
+        
+        .cat-content h3 {
+            margin: 0 0 10px 0;
+            color: #0984e3;
+        }
+        
+        .cat-content p {
+            font-size: 14px;
+            color: #636e72;
+            line-height: 1.5;
+        }
+        
+        .info-tag {
+            display: inline-block;
+            background: #e1f5fe;
+            color: #01579b;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 12px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-frame">
+        <header>
+            <h1>🐱 Cats-Hub: Mushuklar Ensiklopediyasi</h1>
+            <p>Eng mashhur mushuk zotlari haqida batafsil ma'lumot</p>
+        </header>
+
+        <div class="cats-grid" id="mainGrid">
+        </div>
+    </div>
+
+    <script>
+        // MUSHUKLAR MA'LUMOTLARI VA RASMLARI
+        const cats = [{
+            name: "Siam Mushugi",
+            desc: "Siam mushuklari juda aqlli va muloqotga kirishuvchan bo'ladi. Ular o'z egalariga juda qattiq bog'lanib qolishadi.",
+            origin: "Tailand",
+            img: "https://images.unsplash.com/photo-1557124258-2c9736f3330a?auto=format&fit=crop&w=400"
+        }, {
+            name: "Fors Mushugi",
+            desc: "Uzun junli va xotirjam tabiatli mushuk. Ular shovqinni yoqtirishmaydi va ko'proq uxlashni afzal ko'rishadi.",
+            origin: "Eron",
+            img: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=400"
+        }, {
+            name: "Bengal Mushugi",
+            desc: "Tashqi ko'rinishi leopardga o'xshash, lekin tabiati juda mehribon. Ular suvda o'ynashni yaxshi ko'radilar.",
+            origin: "AQSH",
+            img: "https://images.unsplash.com/photo-1513245538863-17bd35679e5a?auto=format&fit=crop&w=400"
+        }, {
+            name: "Britaniya Mushugi",
+            desc: "Katta va yumshoq tanali, kulrang junli mushuklar. Ular juda mustaqil va yolg'iz qolishdan qo'rqmaydilar.",
+            origin: "Angliya",
+            img: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=400"
+        }];
+
+        const grid = document.getElementById('mainGrid');
+
+        // MA'LUMOTLARNI CHIQARISH
+        cats.forEach(cat => {
+            grid.innerHTML += `
+                <div class="cat-card">
+                    <img src="${cat.img}" alt="${cat.name}" class="cat-image">
+                    <div class="cat-content">
+                        <h3>${cat.name}</h3>
+                        <p>${cat.desc}</p>
+                        <span class="info-tag">Vatani: ${cat.origin}</span>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+</body>
+
+</html>
